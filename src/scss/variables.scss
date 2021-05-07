@@ -1,0 +1,11 @@
+$primary-color: #22559c;
+$secondary-color: #f3f0e0;
+
+$primary-font: "Fira Sans";
+$secondary-font: "Hind Madurai";
+$text-font: "Khula";
+
+@mixin headers {
+  font-family: $primary-font;
+  color: $secondary-color;
+}
