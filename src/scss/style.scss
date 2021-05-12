@@ -32,7 +32,7 @@ body {
 }
 
 .card-container {
-  padding: 3rem 8rem;
+  padding: 3rem 2rem;
 }
 
 .card-header {
@@ -43,8 +43,9 @@ body {
 .city-name {
   color: $secondary-color;
   font-family: $secondary-font;
-  font-size: 2.5rem;
+  font-size: 4rem;
   text-align: center;
+  margin: 0 auto;
 }
 
 .time {
