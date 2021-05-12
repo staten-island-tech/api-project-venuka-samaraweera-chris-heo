@@ -25,3 +25,36 @@ body {
 .input-box {
   text-align: center;
 }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  padding: 3rem 8rem;
+}
+
+.card-header {
+  @include headers;
+  font-size: 3rem;
+}
+
+.city-name {
+  color: $secondary-color;
+  font-family: $secondary-font;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.time {
+  color: $secondary-color;
+  font-family: $secondary-font;
+  font-size: 2rem;
+}
+
+.view-time {
+  color: $secondary-color;
+  font-family: $text-font;
+  font-size: 1.2rem;
+}
