@@ -1,5 +1,9 @@
 @import "variables.scss";
 
+button * {
+  pointer-events: none;
+}
+
 body {
   background-color: $primary-color;
 }
@@ -58,4 +62,10 @@ body {
   color: $secondary-color;
   font-family: $text-font;
   font-size: 1.2rem;
+}
+
+.input-button {
+  background-color: $secondary-color;
+  font-size: 2rem;
+  margin: 0rem 1rem;
 }
