@@ -1,6 +1,6 @@
 const DOMSelectors = document.querySelector(".flex-container");
 const key = "c8u5P0txJE6pJcrJpGgbG6JjoHY8MbzA";
-const searchButton = document.getElementById("input-button");
+const searchArea = document.getElementById("search-area");
 
 function randomCoords(min, max) {
   min = Math.ceil(min);
@@ -40,12 +40,27 @@ async function query() {
 
 i = 0;
 while (i < 3) {
+  
   query();
   i++;
 }
 
-searchButton.addEventListener("click", function () {
-  const searchText = document.getElementById("input-text").value;
-  console.log(searchText);
-  console.log("bruh");
+async function search(param) {
+  try {
+    const data = await fetch(
+      `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${param}&maxResults=1`
+    );
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+    alert("oops");
+  }
+}
+
+searchArea.addEventListener("keyup", function (e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    let searchContent = searchArea.value;
+    search(searchContent);
+  }
 });

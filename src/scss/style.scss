@@ -14,20 +14,18 @@ body {
   font-size: 5rem;
 }
 
-.input-text {
+.search-header {
   @include headers;
   font-size: 3rem;
-}
-
-.input-box {
-  font-family: $primary-font;
-  font-size: 2rem;
-  background-color: $secondary-color;
-}
-
-.input-text,
-.input-box {
   text-align: center;
+}
+
+#search-area {
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  background-color: $secondary-color;
+  width: 60%;
+  height: 2.2rem;
 }
 
 .flex-container {
@@ -62,10 +60,4 @@ body {
   color: $secondary-color;
   font-family: $text-font;
   font-size: 1.2rem;
-}
-
-.input-button {
-  background-color: $secondary-color;
-  font-size: 2rem;
-  margin: 0rem 1rem;
 }

@@ -12,11 +12,14 @@
   </head>
   <body>
     <h1 class="header">Sunrise & Sunrise Tracker</h1>
-    <label class="input-text" id="input-text" for="input"
-      >Search for a city:</label
-    >
-    <input type="text" class="input-box" />
-    <button class="input-button" id="input-button">lets go!</button>
+    <form class="search-form" id="search-form">
+      <label class="search-header">Search:</label>
+      <textarea
+        name="search-area"
+        id="search-area"
+        placeholder="City, State, Country, or ZIP Code"
+      ></textarea>
+    </form>
     <section class="container">
       <div class="flex-container">
         <!-- <div class="card-container">
