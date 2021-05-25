@@ -35,6 +35,9 @@ body {
 
 .card-container {
   padding: 3rem 2rem;
+  background-color: $secondary-color;
+  border-radius: 4rem;
+  margin: 2rem;
 }
 
 .card-header {
@@ -43,7 +46,7 @@ body {
 }
 
 .city-name {
-  color: $secondary-color;
+  color: $primary-color;
   font-family: $secondary-font;
   font-size: 4rem;
   text-align: center;
@@ -51,13 +54,13 @@ body {
 }
 
 .time {
-  color: $secondary-color;
+  color: $primary-color;
   font-family: $secondary-font;
   font-size: 2rem;
 }
 
 .view-time {
-  color: $secondary-color;
+  color: $primary-color;
   font-family: $text-font;
   font-size: 1.2rem;
 }
