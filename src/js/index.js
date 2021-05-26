@@ -40,7 +40,6 @@ async function query() {
 
 i = 0;
 while (i < 3) {
-  
   query();
   i++;
 }
