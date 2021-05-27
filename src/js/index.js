@@ -8,19 +8,21 @@ function randomCoords(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-async function query() {
+/* async function query() {
   try {
     const lat = randomCoords(-90, 90);
     const lon = randomCoords(-180, 180);
-    const data = await Promise.all([
+    Promise.all([
       fetch(
         `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today`
-      ).then((response) => response.json()),
+      ),
       fetch(
         `http://www.mapquestapi.com/geocoding/v1/reverse?key=${key}&location=${lat},${lon}`
-      ).then((response) => response.json()),
-    ]);
-    console.log(data);
+      ),
+    ]).then((values) => {
+      console.log(values);
+    });
+
     DOMSelectors.insertAdjacentHTML(
       "beforeend",
       `<div class="card-container">
@@ -36,19 +38,20 @@ async function query() {
     console.log(error);
     alert("oops");
   }
-}
+} */
 
-i = 0;
+/* i = 0;
 while (i < 3) {
   query();
   i++;
-}
+} */
 
 async function search(param) {
   try {
-    const data = await fetch(
+    const response = await fetch(
       `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${param}&maxResults=1`
     );
+    const data = await response.json();
     console.log(data);
   } catch (error) {
     console.log(error);
