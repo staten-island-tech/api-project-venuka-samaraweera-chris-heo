@@ -8,21 +8,17 @@ function randomCoords(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-/* async function query() {
+async function query() {
   try {
     const lat = randomCoords(-90, 90);
-    const lon = randomCoords(-180, 180);
-    Promise.all([
-      fetch(
-        `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today`
-      ),
-      fetch(
-        `http://www.mapquestapi.com/geocoding/v1/reverse?key=${key}&location=${lat},${lon}`
-      ),
-    ]).then((values) => {
-      console.log(values);
-    });
-
+    const lng = randomCoords(-180, 180);
+    const data = await fetch(
+      `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`
+    );
+    const location = await fetch(
+      `http://www.mapquestapi.com/geocoding/v1/reverse?key=${key}&location=${lat},${lng}`
+    );
+    console.log(data, location);
     DOMSelectors.insertAdjacentHTML(
       "beforeend",
       `<div class="card-container">
@@ -38,21 +34,35 @@ function randomCoords(min, max) {
     console.log(error);
     alert("oops");
   }
-} */
+}
 
-/* i = 0;
+i = 0;
 while (i < 3) {
   query();
   i++;
-} */
+}
 
 async function search(param) {
   try {
-    const response = await fetch(
-      `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${param}&maxResults=1`
+    const location = await fetch(
+      `http://www.mapquestapi.com/geocoding/v1/address?key=${key}&location=${param}`
     );
-    const data = await response.json();
+    const data = await fetch(
+      `https://api.sunrise-sunset.org/json?lat=${location.results[0].locations[0].latLng.lat}&lng=${location.results[0].locations[0].latLng.lng}&date=today`
+    );
+    console.log(location);
     console.log(data);
+    DOMSelectors.insertAdjacentHTML(
+      "beforeend",
+      `<div class="card-container">
+          <div class="card">
+            <h3 class="city-name">${location.results[0].locations[0].adminArea3}, ${location.results[0].locations[0].adminArea1}</h3>
+            <h3 class="time">sunrise: ${data.results.sunrise}</h3>
+            <h3 class="time">sunset: ${data.results.sunset}</h3>
+            <p class="view-time">View at ${data.results.sunset} - ${data.results.nautical_twilight_end} for optimal sunset view</p>
+          </div>
+        </div>`
+    );
   } catch (error) {
     console.log(error);
     alert("oops");
